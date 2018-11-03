@@ -1,0 +1,750 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;}
+{\colortbl;\red255\green255\blue255;\red12\green99\blue153;\red242\green239\blue236;\red0\green0\blue0;
+\red148\green108\blue71;\red135\green135\blue135;\red85\green138\blue3;\red133\green0\blue67;}
+{\*\expandedcolortbl;;\cssrgb\c0\c46667\c66667;\cssrgb\c96078\c94902\c94118;\cssrgb\c0\c0\c0;
+\cssrgb\c65098\c49804\c34902;\cssrgb\c60000\c60000\c60000;\cssrgb\c40000\c60000\c0;\cssrgb\c60000\c0\c33333;}
+\margl1440\margr1440\vieww10540\viewh10560\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs28 \cf0 \
+to run tests:\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0\fs24 \cf0 altogether: jest \
+individual: jest fib/test \'97watch  or jest fib \'97watch \
+\
+reversestring:\
+.split(\'91 \'92) //turns the var into an array\
+var arr = str.split(\'91 \'92) \
+\
+\
+1. var arr = str.split(''); //turns into an array\
+  arr.reverse(); //reverse the order\
+  return arr.join('');  //join back up the array\
+  \
+2. return str.split('').reverse().join('');
+\b\fs28 \
+\
+
+\b0\fs24 3. //ES15 New For loop\
+let reversed = '';  //empty string\
+\
+for (let character of str) \{  //we are iterating through 'str' by character\
+  //character is being re-declared everytime it runs \
+  reversed = character + reversed;  // we are adding into reversed array\
+ \}\
+ return reversed;\
+\
+4. rev is a array reversed and char is a character we are working on it\
+    return str.split('').reduce((rev,char) => char + rev, '');\
+    reduce() will condense the splitted array into one array\
+    reduce() takes in two values 1. arrow function 2. initial value\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b\fs28 \cf0 Debuggers:\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0\fs24 \cf0 node inspect index.js\
+write c, cont, continue \
+\
+to get the variables to debug()\
+repl \
+and than we can write variables names \
+\
+we need to add manual function as well to test\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b\fs28 \cf0 Paldinromes:\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0\fs24 \cf0 \
+1. const rev = str.split('').reverse().join('');\
+\
+  //return str === rev;\
+\
+  if(str === rev) \{\
+    return true;\
+  \} else \{\
+    return false;\
+  \}\
+\
+2. every() runs a test on every element of an array \
+we can compare first element with the last one and work on our way backwards and so on\'85\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b\fs28 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0\fs24 \cf0 //char is the element we are comparing and 'i' is the same element on the other side of an array\
+  return str.split('').every((char,i) => \{\
+\
+    //'i' is an increment for every step of the loop\
+    //str.length gives length of every step \
+    return char === str[str.length - i - 1];\
+  \});\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b\fs28 \cf0 \
+ReverseInt:\
+
+\b0 toString()  //turns integers into a string \
+Math.sign()  // deals with the signs of numbers and returns the same sign as input\
+parseInt()  // takes in a number and change it to string\
+\
+//toString() is to make other functions make works wit it\
+    const num = n.toString().split('').reverse().join('');\
+\
+ 1. // Now we are pulling an Integer from the string\
+    if(n < 0) \{\
+      return parseInt(num) * -1;\
+    \} return parseInt(num);
+\b \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b0\fs24 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\fs28 \cf0 2. //toString() is to make other functions make works wit it\
+    const num = n.toString().split('').reverse().join('');\
+\
+    return parseInt(num) * Math.sign(n);\
+\
+
+\b MaxChar:\
+
+\b0 for (let char of str)  //A for string which we can use on a iteratable string/array but not  \
+                                on an object
+\fs24 \
+
+\fs28 for (let char in str)  //We can use that to loop through an object\
+\
+  //Create an object so that when we make an array we can save that array in that object\
+  const charMap = \{\};\
+  let max = 0; //it will track max number of chars\
+  let maxChar = ''; //The alphabet which is max\
+\
+\
+  for (let char of str) \{ //this will loop through iterateable arrays\
+    if(charMap[char]) \{  //charMap[char] returns the reference of current element\
+      charMap[char]++; // if already there, just makes an increment to it\
+    \} else \{\
+      charMap[char] = 1;  // in case if it is not added before  \
+    \}\
+  \}\
+  //for loop for iterating through OBJECTS\
+  for (let char in charMap) \{  //char is assigned a key within that object\
+    if(charMap[char] > max) \{\
+      max = charMap[char];\
+      maxChar = char;\
+    \}\
+  \}\
+  return maxChar;\
+\
+
+\b FizzBuzz: Classic interview question\
+  
+\b0 for(let a=1;a<=n;a++) \{\
+    //check to see if the number is multiple of 3 and 5\
+    if (a%3 === 0 && a%5 === 0) \{\
+      console.log('fizzbuzz');\
+    \} else if (a%3 === 0) \{\
+      console.log('fizz');\
+    \} else if (a%5 === 0) \{\
+      console.log('buzz');\
+    \} else \{\
+      console.log(a);\
+    \}\
+  \}
+\b \
+
+\b0 \
+
+\b Chunk:\
+
+\b0 //create empty array to hold chunks called 'chunked'\
+//for each element in the 'unchunked' array\
+//retrieve the last element in 'chunked'\
+//if the last element does not exist or if its length is equal to chunk size\
+//push a new chunk into 'chunked' with the current element\
+//ELSE add the current element into the chunk\
+
+\b \
+
+\b0  1. const chunked = []; //array\
+\
+  for (let element of array) \{\
+    //last element of the array\
+    const last = chunked[chunked.length - 1];\
+\
+    //if the last does not exist or length of last is equal to chunk size\
+    if(!last || last.length === size) \{\
+      chunked.push([element]);\
+    \} else \{\
+      last.push(element);\
+    \}\
+  \}\
+  return chunked;\
+\
+\
+2. Array.slice(a,b) //a: initial value within array   b: where to stop array \
+  2. create empty 'chunked' array\
+   create 'index' start at 0\
+   while index is less than array.length\
+   push a slice of length 'size' from array into 'chunked'\
+   Add 'size' to 'index'\
+\
+   const chunked = [];\
+   let index = 0;\
+\
+   while(index < array.length) \{\
+     chunked.push(array.slice(index,index + size));\
+     index += size;\
+   \}\
+   return chunked;\
+\
+
+\b Anagrams:\
+
+\b0 word.replace(/[^w/g, \'93\'94) //it will replace \
+word.toLowerCase()\
+\
+NEED TO COME BACK TO IT\
+\
+
+\b Capitalize:\
+
+\b0 string.slice(beginIndex, endIndex) //can takeout elements from the string\
+\
+1. 1. make an empty array 'words'\
+   split the input string by spaces to get an array\
+   for each word in the array\
+   uppercase the first letter of the word\
+   join first letter with rest of the string\
+   push result into 'words' array\
+   join 'words' into a string and return it\
+\
+   const words = [];\
+\
+   for (let word of str.split(' ')) \{ // we are splitting each word of the array with space ' '\
+     words.push(word[0].toUpperCase() + word.slice(1));\
+     //first char of each word get capitalize + join it with rest of the word\
+     // and push that into the array\
+   \}\
+   return words.join(' '); //we will join every word with a space  \
+\
+2. 2. create an empty string called 'result'  //'hi' h will never get capitalized\
+   create 'result' which is the first character of the input string capitalized\
+   for each character in the string\
+   IF the character to the left a space\
+   capitalize it and add it to 'result'\
+   ELSE add it to 'result'\
+\
+   let result = str[0].toUpperCase();  //capitalize first character of the word\
+\
+   for(let a=1;a< str.length;a++) \{\
+     if (str[a - 1] === ' ') \{\
+       result += str[a].toUpperCase();\
+     \} else \{\
+       result += str[a];\
+     \}\
+   \}\
+   return result;\
+\
+
+\b Steps
+\b0 :\
+1.ITERATIVE\
+   from 0 to n (iterate through rows)\
+   create an empty string 'stair'\
+   from 0 to n\
+   IF the current column is equal to or less than the current row\
+   add a '#' to 'stair'\
+   ELSE\
+   add a space to 'stair'\
+   print stair\
+\
+   for(let row=0;row<n;row++) \{ \
+       let stair = '';\
+\
+       for(let column=0;column<n;column++) \{\
+         if(column <= row) \{\
+           stair += '#';\
+         \} else \{\
+           stair += ' ';\
+         \}\
+       \}\
+       console.log(stair);\
+   \}
+\b \
+
+\b0 \
+2. RECURSION\
+      if(n === row) \{  //it the number provided is equal to no.of rows\
+        return;\
+      \}\
+       //case in which we hit the end of the row\
+      if(n === stair.length) \{ // n and stair.length are not equal\
+        console.log(stair);\
+        steps(n,row+1,'');\
+        return;\
+      \}\
+\
+      if(stair.length <= row) \{ //initially both are 0\
+        stair += '#';  //so we adding #\
+      \} else \{\
+        stair += ' ';  // when they both are not equal\
+      \}\
+      //const add = stair.length <= row ? '#' : ' ';\
+      //steps(n,row,stair+add);\
+      steps(n,row,stair);\
+\
+
+\b Pyramid:\
+
+\b0 1. 1. from 0 to n (iterate through rows)\
+   create an empty string, 'level'\
+   from 0 to ???(columns)\
+   IF the column should have a #\
+   Add a '#' to 'level'\
+   ELSE\
+   Add a space to 'level'\
+   console.log(stair)\
+\
+   ITERATIVE SOLUTION \
+   //to calculate the midpoint of our row\
+   const mp = Math.floor((2*n-1)/2);\
+\
+     for(let rows=0;rows<n;rows++) \{\
+       let level = '';\
+\
+       for(let column=0;column<2*n-1;column++) \{\
+         if(mp - rows <= column && mp + rows >= column) \{\
+           level += '#';\
+         \} else \{\
+           level += ' ';\
+         \}\
+       \}\
+       console.log(level);\
+     \}\
+
+\b \
+\
+
+\b0 2. \
+  function pyramid(n,row=0,level='') \{\
+  if(row===n) \{\
+    return;\
+  \}\
+\
+  if(level.length === 2*n-1) \{\
+    console.log(level);\
+    return pyramid(n,row+1);\
+  \}\
+\
+    const mp = Math.floor((2*n-1)/2);\
+    let add;\
+\
+    if(mp - row <= level.length && mp + row >= level.length) \{\
+      add = '#';\
+    \} else \{\
+      add = ' ';\
+    \}\
+    pyramid(n,row,level+add);\
+\}\
+
+\b \
+vowels:\
+
+\b0 word.includes(\'93 \'94) //returns a bool for a string/word/arrays\
+\
+1. let count = 0;\
+  const check = ['a', 'e', 'i', 'o', 'u'];\
+\
+  for(let char of str.toLowerCase()) \{\
+      if(check.includes(char)) \{\
+        count++;\
+      \}\
+  \}\
+  return count;\
+
+\b \
+
+\b0 2. const matches = str.match(/[aeiou]/gi); //this method will tell us if it encounters the aplhabets within [].\
+  //g: makes sure it doesnt stop on first match\
+  //matches will either null or an array\
+\
+  return matches ? matches.length : 0; \
+\
+
+\b Matrix: \
+
+\b0 \
+
+\b Queue:\
+
+\b0 array.unshift(); // to add member at the front \
+array.pop();  // to remover member at the end \
+array.shift();\
+array.push();\
+array.splice();\
+array.slice(); \
+queue.add(1);\
+queue.remove();\
+\
+we have to initialize an array and assign the value to it. In ES15 whenever we create a class and call constructor() \{\} method in it. that constructor will be automatically be called when we create a new instance of the class. \
+we can create an array an assign as an property of the class. \
+\
+\
+    constructor() \{\
+      this.data = [];\
+    \}\
+\
+    add(record) \{\
+      //unshift will add the data entry into the front of the array\
+      this.data.unshift(record)\
+    \}\
+\
+    remove(record) \{\
+      //pop() will remove the entry from the end of the array\
+      let rem = this.data.pop(record);\
+      return rem;\
+    \}\
+\
+
+\b weaving
+\b0 :\
+function weave(sourceOne, sourceTwo) \{\
+  //Making a new Queue\
+  //which can combine results of both queues\
+  const q = new Queue();\
+\
+  //OR will let other insert element if other is out of elements\
+  while(sourceOne.peek() || sourceTwo.peek()) \{ //either of these queues have elements to return\
+    \
+    if(sourceOne.peek()) \{  // if element is coming from source 1\
+      q.add(sourceOne.remove()); //adding in q what have been removed from sourceOne\
+    \}\
+\
+    if(sourceTwo.peek()) \{ // if element is coming from source 2\
+      q.add(sourceTwo.remove()); //adding in q what have been removed from sourceTwo\
+    \}\
+  \}\
+  return q;\
+\
+
+\b Stack:\
+
+\b0 push(); //Add a record to the stack\
+pop();  // remove the \'91top\'92 record in the stack\
+peek();  return the \'91top\'92 record without popping it \
+\
+constructor() \{\
+    this.data = [];  //starting a array which holds data\
+  \}\
+\
+  push(record) \{\
+    this.data.push(record);\
+  \}\
+\
+  pop() \{\
+    return this.data.pop();\
+  \}\
+\
+  peek() \{\
+    //we have to return last record of an array without actually removing it\
+    return this.data[this.data.length - 1];\
+  \}
+\b \
+\
+Making something with Queue/stack (qfroms):\
+
+\b0 constructor() \{\
+    this.first = new Stack();\
+    this.second = new Stack();\
+  \}\
+\
+  add(record) \{\
+    this.first.push(record); //putting data into the first stack\
+  \}\
+\
+  //we need to make sure we iterate through all records of Stack A and push them into Stack B\
+  //peek() will tell us if their is still element in Stack A\
+  remove() \{\
+    while(this.first.peek()) \{ // as long as this returns a value\
+    const record1 = this.first.pop();  // we will be popping that value out\
+    this.second.push(record1); //pushing it into Stack B\
+   \}\
+\
+   const record2 = this.second.pop(); //reference to the value inside Stack B\
+\
+   //Now we are putting values back to Stack A to get the ordering staright\
+   while(this.second.peek()) \{ // as long as this returns a value\
+   this.first.push(this.second.pop());  // we will be popping that value out\
+   \}\
+  return record2;\
+  \}\
+  peek() \{\
+    while(this.first.peek()) \{ // as long as there are elemets in Stack A\
+      let popping = this.first.pop(); //popping values from Stack A\
+      this.second.push(popping); //putting values into stack B\
+    \}\
+    //reference to top record\
+    const record3 = this.second.peek();\
+\
+    while(this.second.peek()) \{\
+      this.first.push(this.second.pop());\
+    \}\
+    return record3;\
+  \}\
+
+\b \
+LinkedList:\
+\
+file:///Users/muhammadwaheed/Desktop/Algorithms/AlgoCasts/exercises/linkedlist/directions.html\
+\
+
+\b0 Linked list is an ordered collection of data. the collection contains different \
+nodes, each node contains some amount of data along with the \
+reference to next node and altogether it is Linked List.\
+\
+there are Head node and Tail node. Tail doesn\'92t have a reference to next\
+node.  \
+\
+class Node \{\
+  constructor(data, next = null) \{\
+    this.data = data;\
+    this.next = next;\
+  \}\
+\}\
+\
+class LinkedList \{\
+  constructor(values = []) \{\
+    this.head = null;\
+\
+    for (let value of values) \{\
+      this.insertLast(value);\
+    \}\
+  \}\
+\
+  clear() \{\
+    this.head = null;\
+  \}\
+\
+  size() \{\
+    let counter = 0;\
+    let node = this.head;\
+\
+    while (node) \{\
+      counter++;\
+      node = node.next;\
+    \}\
+\
+    return counter;\
+  \}\
+\
+  getAt(index) \{\
+    if (!this.head) \{\
+      return null;\
+    \}\
+\
+    let counter = 0;\
+    let node = this.head;\
+    while (node) \{\
+      if (counter === index) \{\
+        return node;\
+      \}\
+      node = node.next;\
+      counter++;\
+    \}\
+    return null;\
+  \}\
+\
+  insertAt(data, index) \{\
+    if (!this.head) \{\
+      this.head = new Node(data);\
+      return;\
+    \}\
+\
+    if (index === 0) \{\
+      this.head = new Node(data, this.head);\
+      return;\
+    \}\
+\
+    let counter = 1;\
+    let previous = this.head;\
+    let node = this.head.next;\
+    while (node) \{\
+      if (counter === index) \{\
+        previous.next = new Node(data, node);\
+        return;\
+      \}\
+      previous = node;\
+      node = node.next;\
+      counter++;\
+    \}\
+\
+    previous.next = new Node(data, node);\
+  \}\
+\
+  removeFirst() \{\
+    if (!this.head) \{\
+      return;\
+    \}\
+\
+    this.head = this.head.next;\
+  \}\
+\
+  removeLast() \{\
+    if (!this.head) \{\
+      return;\
+    \}\
+\
+    if (!this.head.next) \{\
+      this.head = null;\
+      return;\
+    \}\
+\
+    let previous = this.head;\
+    let node = this.head.next;\
+    while (node.next) \{\
+      previous = node;\
+      node = node.next;\
+    \}\
+    previous.next = null;\
+  \}\
+\
+  removeAt(index) \{\
+    if (!this.head) \{\
+      return;\
+    \}\
+\
+    let counter = 0;\
+    let node = this.head;\
+    while (node) \{\
+      if (counter === index - 1) \{\
+        if (node.next) \{\
+          return (node.next = node.next.next);\
+        \} else \{\
+          return (node.next = null);\
+        \}\
+      \}\
+      node = node.next;\
+      counter++;\
+    \}\
+  \}\
+\
+  getFirst() \{\
+    return this.head;\
+  \}\
+\
+  insertFirst(data) \{\
+    this.head = new Node(data, this.getFirst());\
+  \}\
+\
+  getLast() \{\
+    if (!this.head) \{\
+      return null;\
+    \}\
+\
+    let node = this.head;\
+    while (node.next) \{\
+      node = node.next;\
+    \}\
+\
+    return node;\
+  \}\
+\
+  insertLast(data) \{\
+    const last = this.getLast();\
+\
+    if (last) \{\
+      last.next = new Node(data);\
+      return last.next;\
+    \} else \{\
+      this.head = new Node(data);\
+      return this.head;\
+    \}\
+  \}\
+\
+  forEach(fn) \{\
+    if (!this.head) \{\
+      return null;\
+    \}\
+\
+    let node = this.head;\
+    while (node) \{\
+      fn(node);\
+      node = node.next;\
+    \}\
+  \}\
+\
+  *[Symbol.iterator]() \{\
+    let node = this.head;\
+    while (node) \{\
+      yield node;\
+      node = node.next;\
+    \}\
+  \}\
+\}\
+\
+
+\b Midpoint:\
+
+\b0 let slow = list.getFirst();  //looking at first element of the list\
+  let fast = list.getFirst();  //looking at first element of the list\
+\
+  //when it exit out of while loop it means slow is pointing to mid point\
+  while(fast.next && fast.next.next) \{  //as long as node after first one and one after is defined\
+    slow = slow.next;   //slow forward by one\
+    fast = fast.next.next; //jump forward by two\
+  \}\
+  return slow;\
+\
+
+\b Circular: \
+
+\b0 let slow = list.head;\
+  let fast = list.head;\
+\
+  while(fast.next && fast.next.next) \{\
+      // we are moving 'slow' by one\
+      slow = slow.next;\
+      fast = fast.next.next;\
+\
+      //if they are pointing at the same variable\
+      if(slow === fast) \{\
+        return true;\
+      \}\
+  \}\
+  return false;
+\b \
+\
+Tree:\
+\
+\
+\
+Object in JS:\
+\pard\pardeftab720\sl340\partightenfactor0
+
+\f1\b0 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 let\cf4 \strokec4  user \cf5 \strokec5 =\cf4 \strokec4  \cf6 \strokec6 \{\cf4 \strokec4 \
+  name\cf6 \strokec6 :\cf4 \strokec4  \cf7 \strokec7 "John"\cf6 \strokec6 ,\cf4 \strokec4 \
+  age\cf6 \strokec6 :\cf4 \strokec4  \cf8 \strokec8 30\cf4 \strokec4 \
+\cf6 \strokec6 \};\cf4 \strokec4 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+
+\b0 //returns an array of keys\
+Object.keys(user) = [name, age]\
+\
+//returns an array of values\
+Object.values(user) = [\'93john\'94, 30]\
+\
+//returns an array of [key, value] pairs\
+Object.entries(user) = [[\'93name\'94, \'93john\'94], [\'93age\'94, 30]]
+\b \
+}
